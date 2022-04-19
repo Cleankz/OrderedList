@@ -125,6 +125,8 @@ class OrderedList:
                 self.tail = node.prev
                 node.prev = None
                 node.value = None
+                node = None
+                prev_node.next = None
                 break
             if node.value == val:
                 next_node = node.next
@@ -136,6 +138,7 @@ class OrderedList:
                 node.value = None
                 node = None
                 break
+            prev_node = node
             node = node.next
 
     def clean(self, asc):
