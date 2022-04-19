@@ -6,11 +6,6 @@ from OL import Node
 import random
 class MyTests(unittest.TestCase):
 
-    def test_find(self):
-        n = OrderedList(False)
-        for i in range(100):
-            n.add(random.randint(0,100))
-
     def test_del(self):
         n = OrderedList(False)
         n.add(50)
