@@ -35,6 +35,7 @@ class OrderedList:
                     n.next = node
                     node.prev = n
                     self.tail = n
+                    break
                 if node == self.tail and node.value >= value:
                     prev = node.prev
                     n.next = node
@@ -42,16 +43,19 @@ class OrderedList:
                     node.prev = n
                     prev.next = n
                     self.head = n
+                    break
                 if node == self.tail and node.value < value:
                     node.next = n
                     n.prev = node
                     self.head = n
+                    break
                 if node.value >= value:
                     prev = node.prev
                     n.next = node
                     n.prev = node.prev
                     node.prev = n
                     prev.next = n
+                    break
                 node = node.next
         if self.head is not None and self.__ascending == False:
             while node != None:
@@ -59,6 +63,7 @@ class OrderedList:
                     n.next = node
                     node.prev = n
                     self.tail = n
+                    break
                 if node == self.tail and node.value <= value:
                     prev = node.prev
                     n.next = node
@@ -66,16 +71,19 @@ class OrderedList:
                     node.prev = n
                     prev.next = n
                     self.head = n
+                    break
                 if node == self.tail and node.value > value:
                     node.next = n
                     n.prev = node
                     self.head = n
+                    break
                 if node.value <= value:
                     prev = node.prev
                     n.next = node
                     n.prev = node.prev
                     node.prev = n
                     prev.next = n
+                    break
                 node = node.next
         if self.head is None:
             self.head = n
