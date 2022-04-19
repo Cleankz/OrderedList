@@ -10,12 +10,12 @@ class MyTests(unittest.TestCase):
         n = OrderedList(False)
         for i in range(100):
             n.add(random.randint(0,100))
-        array =  n.get_all()
-        for i in range(100):
-            self.assertEqual(n.find(array[i]),array[i])
 
     def test_del(self):
         n = OrderedList(False)
+        n.add(50)
+        n.delete(50)
+        self.assertEqual(n.len(),0)
         for i in range(100):
             n.add(random.randint(0,100))
         for i in range(100):
@@ -24,8 +24,6 @@ class MyTests(unittest.TestCase):
 
     def test_add(self):
         ...
-
-    ...
 
 if __name__ == '__main__':
     unittest.main()
