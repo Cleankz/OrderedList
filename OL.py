@@ -29,10 +29,6 @@ class OrderedList:
         n = Node(value)
         n.value = value
         node = self.head
-        if self.head is None:
-            self.head = n
-            n.prev = None
-            n.next = None
         if self.head is not None and self.__ascending == True:
             while node != None:
                 if node == self.head and node.value >= value:
@@ -81,6 +77,11 @@ class OrderedList:
                     node.prev = n
                     prev.next = n
                 node = node.next
+        if self.head is None:
+            self.head = n
+            self.tail = n
+            n.prev = None
+            n.next = None
         # автоматическая вставка value
         # в нужную позицию
 
@@ -113,12 +114,13 @@ class OrderedList:
                 node.value = None
                 node = None
                 node = self.head
-                node.prev = None
+                break
             if node.value == val and node == self.tail:
                 self.tail = node.prev
                 node.prev = None
                 node.value = None
                 node = None
+                break
             if node.value == val:
                 next_node = node.next
                 prev_node = node.prev
@@ -128,6 +130,7 @@ class OrderedList:
                 node.prev = None
                 node.value = None
                 node = None
+                break
             node = node.next
         pass # здесь будет ваш код
 
@@ -149,6 +152,7 @@ class OrderedList:
         node = self.head
         while node is not None:
             L += 1
+            node = node.next
         return L # здесь будет ваш код
 
     def get_all(self):
@@ -171,3 +175,6 @@ class OrderedStringList(OrderedList):
         if len(string.strip(v1,' ')) > len(string.strip(v2,' ')):
             return 1
         return 0
+n = OrderedList(False)
+n.add(50)
+n.delete(50)
