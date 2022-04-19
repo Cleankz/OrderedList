@@ -34,7 +34,7 @@ class OrderedList:
                 if node == self.head and node.value >= value:
                     n.next = node
                     node.prev = n
-                    self.tail = n
+                    self.head = n
                     break
                 if node == self.tail and node.value >= value:
                     prev = node.prev
@@ -42,12 +42,11 @@ class OrderedList:
                     n.prev = node.prev
                     node.prev = n
                     prev.next = n
-                    self.head = n
                     break
                 if node == self.tail and node.value < value:
                     node.next = n
                     n.prev = node
-                    self.head = n
+                    self.tail = n
                     break
                 if node.value >= value:
                     prev = node.prev
@@ -62,7 +61,7 @@ class OrderedList:
                 if node == self.head and node.value <= value:
                     n.next = node
                     node.prev = n
-                    self.tail = n
+                    self.head = n
                     break
                 if node == self.tail and node.value <= value:
                     prev = node.prev
@@ -70,12 +69,11 @@ class OrderedList:
                     n.prev = node.prev
                     node.prev = n
                     prev.next = n
-                    self.head = n
                     break
                 if node == self.tail and node.value > value:
                     node.next = n
                     n.prev = node
-                    self.head = n
+                    self.tail = n
                     break
                 if node.value <= value:
                     prev = node.prev
@@ -127,7 +125,6 @@ class OrderedList:
                 self.tail = node.prev
                 node.prev = None
                 node.value = None
-                node = None
                 break
             if node.value == val:
                 next_node = node.next
@@ -140,7 +137,6 @@ class OrderedList:
                 node = None
                 break
             node = node.next
-        pass # здесь будет ваш код
 
     def clean(self, asc):
         self.__ascending = asc
@@ -183,6 +179,3 @@ class OrderedStringList(OrderedList):
         if len(string.strip(v1,' ')) > len(string.strip(v2,' ')):
             return 1
         return 0
-n = OrderedList(False)
-n.add(50)
-n.delete(50)
