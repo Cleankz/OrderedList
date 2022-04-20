@@ -114,6 +114,14 @@ class OrderedList:
     def delete(self, val):
         node = self.head
         while node is not None:
+            if node.value == val and node == self.head and node == self.tail:
+                node.next = None
+                node.prev = None
+                node.value = None
+                node = None
+                self.head = None
+                self.tail = None
+                break
             if node.value == val and node == self.head:
                 self.head = node.next
                 node.next = None
