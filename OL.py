@@ -120,23 +120,23 @@ class OrderedList:
                 node.value = None
                 node = None
                 node = self.head
+                node.prev = None
                 break
             if node.value == val and node == self.tail:
-                self.tail = node.prev
+                self.tail = prev_node
                 node.prev = None
                 node.value = None
                 node = None
                 prev_node.next = None
                 break
             if node.value == val:
-                next_node = node.next
-                prev_node = node.prev
-                next_node.prev = prev_node
-                prev_node.next = next_node
+                prev_node.next = node.next
                 node.next = None
                 node.prev = None
                 node.value = None
                 node = None
+                node = prev_node.next
+                node.prev = prev_node
                 break
             prev_node = node
             node = node.next
