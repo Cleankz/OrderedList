@@ -27,11 +27,18 @@ class MyTests(unittest.TestCase):
         self.assertEqual(n.len(),1)
         n.delete(51)
         self.assertEqual(n.len(),0)
+        n.add(50)
+        n.add(51)
+        n.add(52)
+        n.add(53)
+        n.delete(51)
+        self.assertEqual(None,n.find(51))
+        self.assertEqual(n.len(),3)
         for i in range(100):
             n.add(i)
         for i in range(100):
             n.delete(i)
-        self.assertEqual(n.len(),0)
+        self.assertEqual(n.len(),3)
 
         n1 = OrderedList(False)
         n1.add(50)
