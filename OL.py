@@ -26,6 +26,8 @@ class OrderedList:
         # +1 если v1 > v2
 
     def add(self, value):
+        # автоматическая вставка value
+        # в нужную позицию
         n = Node(value)
         n.value = value
         node = self.head
@@ -88,8 +90,6 @@ class OrderedList:
             self.tail = n
             n.prev = None
             n.next = None
-        # автоматическая вставка value
-        # в нужную позицию
 
 
 
